@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+   
+     <!-- =========================================== Crops ==========================================-->
+
+     <record model="ir.ui.view" id="crops_form">
+        <field name="name">crops.form</field>
+        <field name="model">crops</field>
+        <field name="arch" type="xml">
+            <form string="Cultivation" version="7.0">
+              <header>
+                <button name="name" string="Survey" />
+                <button  name="$(agri.action_land_prepration_wizard)d" 
+                  string="Land Preparation" 
+                  type="action" 
+                  help="Land Preparation"/>
+                <button name="$(agri.action_planting_wizard)d" string="Planting" type="action" />
+                <button name="$(agri.action_harvesting_wizard)d" string="Harvest" type="action" />
+                <field name="state" widget="statusbar" />
+              </header>
+              <sheet>
+                 <div class="oe_title">
+                   <h1>
+                     <label string="Cultivation Details" />
+                   </h1>  
+                 </div>
+                 <newline/>
+
+                  <div class="oe_right oe_button_box" name="buttons">
+                    <button string="Yield Prediction" name="pridiction" type="action" class="oe_highlight"/>
+                    <button string="Schedule Scouting" name="scoutingschedule" type="action" class="oe_highlight"/>
+                  </div>
+                 <newline/>
+              <group colspan="4" col="4">
+                <field name="crop_name" class="oe_inline"/>
+                <field name="land_name" class="oe_inline"/>
+                <field name="type" class="oe_inline"/>
+                <field name="sowing_date" class="oe_inline"/>
+                <field name="harvesting_date" class="oe_inline"/>
+                <field name="crop_variety" class="oe_inline"/>
+                <field name="crop_yield" class="oe_inline"/>
+                
+              </group>
+              <group colspan="2" col="2">
+                <field name="des"/>
+               </group>
+               <notebook>
+                <page string="Irrigation">
+                  <separator string="Irrigation Details"/>
+                    <field name="irrigation_line" colspan="4" string="Irrigation Details" nolabel="1">
+                        <form string="Irrigation Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="irrigation_date"/>
+                                <field name="irrigation_type"/>
+                               </group>
+                            </sheet>
+                        </form>
+                        <tree string="irrigation Details">
+                              <field name="irrigation_date"/>
+                              <field name="irrigation_type"/>
+                        </tree>
+                    </field>  
+                 </page>
+                 <page string="Land Preparation">
+                  <separator string="Land Preparation"/>
+                    <field name="landpreparation_line" colspan="4" string="Land Preparation" nolabel="1">
+                        <form string="Land Preparation" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="land_preparation_date"/>
+                                <field name="activity"/>
+                                <field name="duration"/>
+                                <field name="area_covered"/>
+                               </group>
+                            </sheet>
+                        </form>
+                        <tree string="Land Preparation">
+                            <field name="land_preparation_date"/>
+                            <field name="activity"/>
+                            <field name="duration"/>
+                            <field name="area_covered"/>
+                        </tree>
+                    </field>  
+                 </page>
+                 
+                 <page string="Fertilizer">
+                  <separator string="Fertilizer Details"/>
+                     <field name="fertilizer_line" colspan="4" string="Fertilizer Details" nolabel="1">
+                        <form string="Fertilizer Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="fertilizer_name"/>
+                                <field name="fertilizer_type"/>
+                                <field name="use_date"/>
+                               </group>
+                            </sheet>
+                        </form>
+                        <tree string="Fertilizer Details">
+                                <field name="fertilizer_name"/>
+                                <field name="fertilizer_type"/>
+                                <field name="use_date"/>
+                        </tree>
+                    </field>  
+                </page>
+                <page string="Intercultivation">
+                  <separator string="Pest Control"/>
+                    <field name="pest_line" colspan="4" string="Pest Details" nolabel="1">
+                        <form string="Pest Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="pest_name"/>
+                                <field name="sevirity"/>
+                                <field name="area"/>
+                                <field name="moniter_date"/>
+                              </group>
+                            </sheet>
+                        </form>
+                        <tree string="Pest Details">
+                                <field name="pest_name"/>
+                                <field name="sevirity"/>
+                                <field name="area"/>
+                                <field name="moniter_date"/>
+                        </tree>
+                    </field> 
+                    <separator string="Weeding"/>
+                    <field name="weeding_line" colspan="4" string="Weeding" nolabel="1">
+                        <form string="Weeding" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="used_chemical"/>
+                                <field name="date"/>
+                              </group>
+                              <page>
+                              </page>
+                            </sheet>
+                        </form>
+                        <tree string="Weeding">
+                                <field name="used_chemical"/>
+                                <field name="date"/>
+                        </tree>
+                    </field> 
+                  <separator string="Disease Control"/>
+                    <field name="disease_line" colspan="4" string="Disease Details" nolabel="1">
+                        <form string="Disease Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="disease_name"/>
+                                <field name="sevirity"/>
+                                <field name="area"/>
+                                <field name="moniter_date"/>
+                              </group>
+                            </sheet>
+                        </form>
+                        <tree string="Disease Details">
+                                <field name="disease_name"/>
+                                <field name="sevirity"/>
+                                <field name="area"/>
+                                <field name="moniter_date"/>
+                        </tree>
+                    </field>
+                  <separator string="Weed Control"/>
+                    <field name="weed_line" colspan="4" string="Weed Details" nolabel="1">
+                        <form string="Weed Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="weed_name"/>
+                                <field name="area"/>
+                                <field name="moniter_date"/>
+                              </group>
+                            </sheet>
+                        </form>
+                        <tree string="Weed Details">
+                                <field name="weed_name"/>
+                                <field name="area"/>
+                                <field name="moniter_date"/>
+                        </tree>
+                    </field>
+                  <separator string="Insect Control"/>
+                    <field name="insect_line" colspan="4" string="Insect Details" nolabel="1">
+                        <form string="Insect Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="insect_name"/>
+                                <field name="area"/>
+                                <field name="sevirity"/>
+                                <field name="moniter_date"/>
+                                <field name="ins_use"/>
+                              </group>
+                            </sheet>
+                        </form>
+                        <tree string="Insect Details">
+                                 <field name="insect_name"/>
+                                <field name="area"/>
+                                <field name="sevirity"/>
+                                <field name="moniter_date"/>
+                                <field name="ins_use"/>
+                        </tree>
+                    </field>   
+                </page>
+                <page string="Input Details">
+                  <separator string="Input Details"/>
+                     <field name="treat_line" colspan="4" string="Input Details" nolabel="1">
+                        <form string="Input Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="date"/>
+                                <field name="type"/>
+                                <field name="quantity"/>
+                                <field name="fungi_use"/>
+                               </group>
+                            </sheet>
+                        </form>
+                        <tree string="Fertilizer Details">
+                                <field name="date"/>
+                                <field name="type"/>
+                                <field name="quantity"/>
+                                <field name="fungi_use"/>
+                        </tree>
+                    </field>  
+                </page>
+                <page string="Crop Survellience">
+                  <separator string="Crop Survellience"/>
+                    <field name="scouting_line" colspan="4" string="scouting Details" nolabel="1">
+                        <form string="Inspection Details" version="7.0">
+                            <sheet>
+                               <div class="oe_right oe_button_box" name="buttons">
+                                   <button string="Scouting Plane" name="scouting" type="action" class="oe_highlight"/>
+                               </div>
+                              <group>
+                                <field name="date"/>
+                              </group>
+                              <separator string="Issues"/>
+                              <field name="issue_line" colspan="4" string="Issues" nolabel="1">
+                                <form string="Issues" version="7.0">
+                                   <sheet>
+                                     <group>
+                                        <field name="new_issue"/>
+                                     </group>
+                                   </sheet>
+                               </form>
+                               <tree string="Issues Noticed">
+                                  <field name="new_issue"/>
+                               </tree>
+                              </field>
+                            </sheet>
+                        </form>
+                        <tree string="Inspection Details">
+                                <field name="date"/>
+                        </tree>
+                    </field>    
+                </page>
+                <page string="Maturity Survey">
+                  <separator string="Destructive Sampling"/>
+                  <field name="sampling_line" colspan="4" string="Destructive Sampling" nolabel="1">
+                        <form string="Destructive Sampling" version="7.0">
+                            <sheet>
+                               <group colspan="4" col="4">
+                                <field name="date"/>
+                                <field name="sample_size"/>
+                                <field name="briks"/>
+                                <field name="pole"/>
+                                <field name="purity"/>
+                                <field name="pole_percent"/>
+                                <field name="fiber_percent"/>
+                              </group>
+                            </sheet>
+                        </form>
+                        <tree string="Destructive Sampling">
+                                <field name="date"/>
+                                <field name="sample_size"/>
+                                <field name="briks"/>
+                                <field name="pole"/>
+                                <field name="purity"/>
+                                <field name="pole_percent"/>
+                                <field name="fiber_percent"/>
+                        </tree>
+                    </field> 
+                  <separator string="HR Bricks Survey"/>
+                   <field name="survey_line" colspan="4" string="HR Bricks Survey" nolabel="1">
+                        <form string="HR Bricks Survey" version="7.0">
+                            <sheet>
+                               <group colspan="4" col="4">
+                                <field name="date"/>
+                                <field name="sample_size"/>
+                                <field name="top"/>
+                                <field name="middle"/>
+                                <field name="bottom"/>
+                              </group>
+                            </sheet>
+                        </form>
+                        <tree string="HR Bricks Survey">
+                                <field name="date"/>
+                                <field name="sample_size"/>
+                                <field name="top"/>
+                                <field name="middle"/>
+                                <field name="bottom"/>
+                        </tree>
+                    </field> 
+                </page>
+                <page string="Harvesting">
+                  <separator string="Harvesting Details"/>
+                    <field name="harvesting_line" colspan="4" string="harvesting Details" nolabel="1">
+                        <form string="harvesting Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <group string="Harvesting Date">
+                                  <field name="start_date"/>
+                                  <field name="end_date"/>
+                                </group>
+                                <group string="Other Detail">
+                                  <field name="amount"/>
+                                  <field name="type"/>
+                                </group>
+                              </group>
+                            </sheet>
+                        </form>
+                        <tree string="Produce Details">
+                          <field name="start_date"/>
+                          <field name="end_date"/>
+                          <field name="amount"/>
+                          <field name="type"/>
+                        </tree>
+                    </field>    
+                </page>
+               </notebook>
+             </sheet>
+            </form>
+           </field>
+    </record>
+  	<record model="ir.ui.view" id="view_crop_graph">
+            <field name="name">crops.graph</field>
+            <field name="model">crops</field>
+            <field name="arch" type="xml">
+                <graph string="Crops Detail" type="pie">
+                    <field name="crop_name" type="row"/>
+                    <field name="crop_yield" type="measure"/>
+                </graph>
+            </field>
+        </record>
+    <record model="ir.ui.view" id="crops_tree">
+        <field name="name">crops.tree</field>
+        <field name="model">crops</field>
+        <field name="arch" type="xml">
+            <tree string= "crops">
+                <field name="crop_name"/>
+                <field name="land_name"/>
+                <field name="type"/>
+                <field name="sowing_date"/>
+            </tree>
+        </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="crops_form_tree">
+        <field name="name">crops</field>
+        <field name="res_model">crops</field>                              
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+<!--============================================ Plot =============================================-->
+      <record model="ir.ui.view" id="plot_form">
+        <field name="name">plot.form</field>
+        <field name="model">plot</field>
+        <field name="arch" type="xml">
+            <form string="lands" version="7.0">
+              <sheet>
+                 <div class="oe_title">
+                   <h1>
+                     <label string="Plot Details" />
+                   </h1>  
+                 </div>
+                 <newline/>
+
+                 <newline/>
+              <group colspan="4" col="4">
+                <field name="plot_number" class="oe_inline"/>
+                <field name="area" class="oe_inline"/>
+                <field name="location" class="oe_inline"/>
+                <field name="gis" class="oe_inline"/>
+                <field name="land_category_id" class="oe_inline"/>
+               
+              </group>
+              <group colspan="2" col="2">
+                <field name="des"/>
+               </group>
+               <notebook>
+                <page string="Soil">
+                  <separator string="Soil Details"/>
+                    <field name="soil_line" colspan="4" string="Soil Details" nolabel="1">
+                        <form string="Soil Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="type"/>
+                                <field name="ph"/>
+                                <field name="color"/>
+                                <field name="npk"/>
+                               </group>
+                            </sheet>
+                        </form>
+                        <tree string="Soil Details">
+                                <field name="type"/>
+                                <field name="ph"/>
+                                <field name="color"/>
+                                <field name="npk"/>
+                        </tree>
+                    </field>  
+                 </page>
+                 <page string="Cultivation">
+                  <separator string="Cultivation Details"/>
+                    <field name="cultivation_line" colspan="4" string="Cultivation History Details" nolabel="1">
+                        <form string="Cultivation History Details" version="7.0">
+                            <sheet>
+                              <group>
+                                <field name="c_name"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="production"/>
+                               </group>
+                            </sheet>
+                        </form>
+                        <tree string="Cultivation History Details">
+                                 <field name="c_name"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="production"/>
+                        </tree>
+                    </field>
+                </page>
+                </notebook> 
+              </sheet>
+            </form>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="view_plot_graph">
+            <field name="name">plot.graph</field>
+            <field name="model">plot</field>
+            <field name="arch" type="xml">
+                <graph string="Plot Detail" type="pie">
+                    <field name="location" type="row"/>
+                    <field name="area" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+      <record model="ir.ui.view" id="plot_tree">
+        <field name="name">plot.tree</field>
+        <field name="model">plot</field>
+        <field name="arch" type="xml">
+            <tree string= "plot">
+                <field name="plot_number"/>
+                <field name="area"/>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="lands_form_tree">
+        <field name="name">plot</field>
+        <field name="res_model">plot</field>                              
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+<!-- ===================================== Configuration ============================================= -->
+    <record model="ir.ui.view" id="land_category_config_form">
+        <field name="name">landsCategoryConfig.form</field>
+        <field name="model">landcategory</field>
+        <field name="arch" type="xml">
+          
+            <form string="Land Categories" version="7.0">
+             
+              <sheet>
+                 <div class="oe_title">
+                   <h1>
+                     <label string="Land Categories" />
+                   </h1>  
+                 </div>
+                 <newline/>
+                 <newline/>
+                  <group colspan="4" col="4">
+                    <field name="name" class="oe_inline"/>
+		                <field name="parent_id" class="oe_inline"/>
+                  </group>
+                </sheet>
+              </form>
+          
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="land_category_config_tree">
+        <field name="name">landsCategoryConfig.tree</field>
+        <field name="model">landcategory</field>
+        <field name="arch" type="xml">
+            <tree string="Land Categories">
+                <field name="name"/>
+		            <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+  
+    <record model="ir.actions.act_window" id="land_category_config_form_tree">
+        <field name="name">landsCategoryConfig</field>
+        <field name="res_model">landcategory</field>                              
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="agri" name="Agriculture"/>
+    <menuitem name="Land Management" id="land_management" parent="agri"/>
+    <menuitem name="Land Groups" id="land_groups" parent="land_management" action="lands_form_tree"/>
+    <menuitem name="Plots" id="plot" parent="land_management" action="lands_form_tree"/>
+    <menuitem name="Cultivation Management" id="cultivation_management" parent="agri"/>
+    <menuitem name="Cultivation" id="cultivation" parent="cultivation_management" action="crops_form_tree"/>
+    <menuitem name="Configuration" id="configuration" parent="agri"/>
+    <menuitem name="Land" id="land_config" parent="configuration"/>
+    <menuitem name="Land Categories" id="land_categories" parent="land_config" action="land_category_config_form_tree"/>
+
+
+
+
+    </data>
+</openerp>

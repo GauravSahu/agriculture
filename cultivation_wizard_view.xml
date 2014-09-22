@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="view_land_preparation" model="ir.ui.view">
+            <field name="name">landpreparation.detail.form</field>
+            <field name="model">landpreparation.detail</field>
+            <field name="arch" type="xml">
+                <form string="Land Preparation">
+                   <label string="Date" />
+                   <field name="land_preparation_date" />
+                   <field name="activity" />
+                   <field name="duration" />
+                   <field name="area_covered"/>
+                   <footer>
+                        <button name="name" string="Submit Data" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_land_preparation" model="ir.actions.act_window">
+            <field name="name">Convert to opportunity</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">landpreparation.detail</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_land_prepration_wizard"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</openerp>
