@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+         <!-- =============== Select Farm  Wizard  ==========================================-->
+        <record id="view_productivity_prediction_wizard" model="ir.ui.view">
+            <field name="name">productivity.prediction.form</field>
+            <field name="model">productivity.prediction</field>
+            <field name="arch" type="xml">
+                <form string="Productivity Prediction">
+                     
+                    <group colspan="4" col="4">
+                       
+                            <field name="plot_id" />                
+                      
+                            <field name="plant_per_acre" />                
+                     
+                    </group>
+                   <footer>
+                        <button name="action_next" string="Next" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_productivity_prediction_wizard" model="ir.actions.act_window">
+            <field name="name">Productivity Prediction</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">productivity.prediction</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_productivity_prediction_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <!-- =============== Select Farm  Wizard  ==========================================-->
+        <record id="view_plant_estimation_wizard" model="ir.ui.view">
+            <field name="name">plant.estimation.form</field>
+            <field name="model">plant.estimation</field>
+            <field name="arch" type="xml">
+                <form string="Plant Estimation">
+                    <label string="Enter Result" />
+                    <group colspan="4" col="4">
+                        <field name="location1" />
+                        <field name="location2" />
+                        <field name="location3" />
+                        <field name="location4" />
+                        <field name="location5" />
+                        <field name="location6" />
+                        <field name="location7" />
+                        <field name="location8" />
+                        <field name="location9" />
+                        <field name="location10" />
+                    </group>
+                    <footer>
+                        <button name="action_next" string="Next" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_plant_estimation_wizard" model="ir.actions.act_window">
+            <field name="name">Estimation of Plants Per Acre</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">plant.estimation</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_plant_estimation_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+         <!-- =============== Select Farm  Wizard  ==========================================-->
+        <record id="view_pods_estimation_wizard" model="ir.ui.view">
+            <field name="name">pods.estimation.form</field>
+            <field name="model">pods.estimation</field>
+            <field name="arch" type="xml">
+                <form string="Pods Estimation">
+                    <label string="Enter Result" />
+                    <group colspan="4" col="4">
+                        <field name="location1" />
+                        <field name="location2" />
+                        <field name="location3" />
+                        <field name="location4" />
+                        <field name="location5" />
+                        <field name="location6" />
+                        <field name="location7" />
+                        <field name="location8" />
+                        <field name="location9" />
+                        <field name="location10" />
+                    </group>
+                    <footer>
+                        <button name="action_next" string="Next" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+           <!-- =============== Select Farm  Wizard  ==========================================-->
+        <record id="view_seed_estimation_wizard" model="ir.ui.view">
+            <field name="name">seed.estimation.form</field>
+            <field name="model">seed.estimation</field>
+            <field name="arch" type="xml">
+                <form string="Seed Estimation">
+                    <label string="Enter Result" />
+                    <group colspan="4" col="4">
+                        <field name="location1" />
+                        <field name="location2" />
+                        <field name="location3" />
+                        <field name="location4" />
+                        <field name="location5" />
+                        <field name="location6" />
+                        <field name="location7" />
+                        <field name="location8" />
+                        <field name="location9" />
+                        <field name="location10" />
+                    </group>
+                    <footer>
+                        <button name="action_next" string="Next" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+      
+      <record id="view_seed_estimation_kg_wizard" model="ir.ui.view">
+            <field name="name">seed.estimation_kg.form</field>
+            <field name="model">seed.estimation_kg</field>
+            <field name="arch" type="xml">
+                <form string="Seed Estimation">
+                    <label string="Enter Result" />
+                    <group colspan="4" col="4">
+                       <field name="seed_verity_id" on_change="onchange_seed_verity_id(seed_verity_id)"/>
+                       <field name="seed_kg"/>
+                    </group>
+                    <footer>
+                        <button name="action_next" string="Next" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+      
+
+        
+
+    </data>
+</openerp>

@@ -370,6 +370,14 @@ class cultivation_history(osv.osv):
     }
 cultivation_history()
 
+class seed_verity(osv.Model):
+  _name = "seed.verity"
+  _description = "Seed Verity"
+  _columns = {
+      'name' : fields.char('Verity Name'),
+      'seed_kg' : fields.integer('Number of Seed Per Kg'),
+  }
+seed_verity()
 
 
 
