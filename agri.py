@@ -141,6 +141,7 @@ class crops(osv.Model):
             'current_crop' : fields.char('Current Crop',size=64),
             'crop_yield' : fields.integer('Yield', size=64),
             'des' : fields.html('Description'),
+            'current_market_price' : fields.integer('Market Price'),
             'actual_productivity':fields.integer("Actual Productivity",size=64),
             'estimated_productivity' : fields.integer('Estimated Productivity',size=64),
             'state': fields.selection([('initial', 'Initial'), ('surveyed','Surveyed'), ('landprepared', 'Land Preparation'), ('planted', 'Planting'), ('intercropping', 'Intercropping'), ('harvest', 'Harvesting'), ('ratoon', 'Ratooning')],
@@ -334,6 +335,7 @@ class plot(osv.Model):
     _name = 'plot'
     _description = 'plot'
     _columns = {
+        'name' : fields.char('Farm Name'),
         'soil_line':fields.one2many('soil.details', 'soil'),
         'cultivation_line':fields.one2many('cultivation.history', 'history'),
         'plot_name':fields.char('Plot Name', size= 64),

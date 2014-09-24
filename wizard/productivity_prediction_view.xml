@@ -9,12 +9,8 @@
                 <form string="Productivity Prediction">
                      
                     <group colspan="4" col="4">
-                       
-                            <field name="plot_id" />                
-                      
-                            <field name="plant_per_acre" />                
-                     
-                    </group>
+                          <field name="plot_id" />                
+                     </group>
                    <footer>
                         <button name="action_next" string="Next" type="object" class="oe_highlight"/>
                         or
@@ -41,15 +37,17 @@
                     <label string="Enter Result" />
                     <group colspan="4" col="4">
                         <field name="location1" />
-                        <field name="location2" />
-                        <field name="location3" />
-                        <field name="location4" />
+                        <field name="location2"  />
+                        <field name="location3"  />
+                        <field name="location4"  />
                         <field name="location5" />
-                        <field name="location6" />
+                        <field name="location6"  />
                         <field name="location7" />
                         <field name="location8" />
                         <field name="location9" />
-                        <field name="location10" />
+                        <field name="location10" on_change="first_change(location1,location2,location3,location4,location5,location6,location7,location8,location9,location10)"/>
+                        <field name="total_avg" />
+                        <field name="plant_population" />
                     </group>
                     <footer>
                         <button name="action_next" string="Next" type="object" class="oe_highlight"/>
@@ -85,7 +83,9 @@
                         <field name="location7" />
                         <field name="location8" />
                         <field name="location9" />
-                        <field name="location10" />
+                        <field name="location10" on_change="first_change(location1,location2,location3,location4,location5,location6,location7,location8,location9,location10)"/>
+                        <field name="total_avg" />
+                        <field name="pods_plant" />
                     </group>
                     <footer>
                         <button name="action_next" string="Next" type="object" class="oe_highlight"/>
@@ -113,7 +113,9 @@
                         <field name="location7" />
                         <field name="location8" />
                         <field name="location9" />
-                        <field name="location10" />
+                        <field name="location10" on_change="first_change(location1,location2,location3,location4,location5,location6,location7,location8,location9,location10)"/>
+                        <field name="total_avg" />
+                        <field name="seed_pod" />
                     </group>
                     <footer>
                         <button name="action_next" string="Next" type="object" class="oe_highlight"/>
@@ -131,8 +133,10 @@
                 <form string="Seed Estimation">
                     <label string="Enter Result" />
                     <group colspan="4" col="4">
-                       <field name="seed_verity_id" on_change="onchange_seed_verity_id(seed_verity_id)"/>
+                       <field name="seed_pod"  invisible="1" />
+                       <field name="seed_verity_id" on_change="onchange_seed_verity_id(seed_verity_id,seed_pod)"/>
                        <field name="seed_kg"/>
+                       <field name="yield" />
                     </group>
                     <footer>
                         <button name="action_next" string="Next" type="object" class="oe_highlight"/>
@@ -142,7 +146,8 @@
                 </form>
             </field>
         </record>
-      
+  
+
 
         
 

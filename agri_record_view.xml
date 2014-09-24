@@ -5,7 +5,7 @@
    
      <!-- =========================================== Crops ==========================================-->
 
-     <record model="ir.ui.view" id="crops_form">
+        <record model="ir.ui.view" id="crops_form">
         <field name="name">crops.form</field>
         <field name="model">crops</field>
         <field name="arch" type="xml">
@@ -41,6 +41,9 @@
                 <field name="harvesting_date" class="oe_inline"/>
                 <field name="crop_variety" class="oe_inline"/>
                 <field name="crop_yield" class="oe_inline"/>
+                 <field name="actual_productivity" class="oe_inline"/>
+                  <field name="estimated_productivity" class="oe_inline"/>
+                   <field name="current_market_price" class="oe_inline"/>
                 
               </group>
               <group colspan="2" col="2">
@@ -337,6 +340,8 @@
                 <graph string="Crops Detail" type="pie">
                     <field name="crop_name" type="row"/>
                     <field name="crop_yield" type="measure"/>
+                    <field name="actual_productivity" type="measure"/>
+                    <field name="estimated_productivity" type="measure"/>
                 </graph>
             </field>
         </record>
@@ -376,7 +381,7 @@
                  <newline/>
               <group colspan="4" col="4">
                 <field name="plot_number" class="oe_inline"/>
-                <field name="plot_name" class="oe_inline"/>
+                <field name="name" class="oe_inline"/>
                 <field name="area" class="oe_inline"/>
                 <field name="location" class="oe_inline"/>
                 <field name="gis" class="oe_inline"/>
@@ -451,6 +456,7 @@
         <field name="model">plot</field>
         <field name="arch" type="xml">
             <tree string= "plot">
+                <field name="name" />
                 <field name="plot_number"/>
                 <field name="area"/>
                 <field name="location"/>
@@ -519,7 +525,49 @@
     <menuitem name="Configuration" id="configuration" parent="agri"/>
     <menuitem name="Land" id="land_config" parent="configuration"/>
     <menuitem name="Land Categories" id="land_categories" parent="land_config" action="land_category_config_form_tree"/>
+ <!-- =============================== Configuration Seed Verity ==================================== -->
+    <record model="ir.ui.view" id="seed_verity_config_form">
+        <field name="name">seed.verity.form</field>
+        <field name="model">seed.verity</field>
+        <field name="arch" type="xml">
+          
+            <form string="Seed Verity" version="7.0">
+             
+              <sheet>
+                
+                 <newline/>
+                 <newline/>
+                  <group colspan="4" col="4">
+                    <field name="name" class="oe_inline"/>
+                    <field name="seed_kg" class="oe_inline"/>
+                  </group>
+                </sheet>
+              </form>
+          
+          </field>
+      </record>
 
+      <record model="ir.ui.view" id="seed_verity_config_tree">
+        <field name="name">seed.verity.tree</field>
+        <field name="model">seed.verity</field>
+        <field name="arch" type="xml">
+            <tree string="Seed Verity">
+                <field name="name"/>
+                <field name="seed_kg"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+  
+    <record model="ir.actions.act_window" id="seed_verity_config_form_tree">
+        <field name="name">Seed Verity</field>
+        <field name="res_model">seed.verity</field>                              
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Seed Verity" id="seed_variety" parent="configuration" action="seed_verity_config_form_tree"/>
 
 
 
