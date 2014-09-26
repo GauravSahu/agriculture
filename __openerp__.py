@@ -1,7 +1,7 @@
 {
     "name" : "Agriculture Management",
     "version" : "0.1",
-    "author": ["Utkarsh Shukla" ],
+    "author": "Gaurav Sahu",
     "category" : "Generic Modules/Agriculture Management",
     "description": """
    Agriculture Management
