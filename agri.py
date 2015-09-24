@@ -17,7 +17,7 @@ class land_category(osv.Model):
       'parent_id': fields.many2one('landcategory','Parent Category', select=True, ondelete='cascade'),
       'child_id': fields.one2many('landcategory', 'parent_id', string='Child Categories'),
       }
-land_category()
+
 
 
 class agri_record(osv.Model):
@@ -29,7 +29,7 @@ class agri_record(osv.Model):
         'corp': fields.char('Corp'),
         }
 
-agri_record()
+
 
 class weed_manag(osv.Model):
     _name = 'weed.manag'
@@ -40,7 +40,7 @@ class weed_manag(osv.Model):
         'corp': fields.char('Corp'),
         }
 
-weed_manag()
+
 
 
 class disease_manag(osv.Model):
@@ -53,7 +53,6 @@ class disease_manag(osv.Model):
         'des' : fields.html('Description'),
         }
 
-disease_manag()
 
 class scouting(osv.Model):
     _name = 'scouting'
@@ -65,7 +64,6 @@ class scouting(osv.Model):
         'des' : fields.html('Description'),
         }
 
-scouting()
 
 class crop_irrigation(osv.Model):
     _name = 'crop.irrigation'
@@ -76,7 +74,7 @@ class crop_irrigation(osv.Model):
         'des' : fields.html('Description'),
         }
 
-crop_irrigation()
+
 
 class practice_package(osv.Model):
     _name = 'practice.package'
@@ -87,7 +85,7 @@ class practice_package(osv.Model):
         'des' : fields.html('Description'),
         }
 
-practice_package()
+
 
 class intercrop_practice(osv.Model):
     _name = 'intercrop.practice'
@@ -98,7 +96,7 @@ class intercrop_practice(osv.Model):
         'des' : fields.html('Description'),
         }
 
-intercrop_practice()
+
 
 
 class field_operation(osv.Model):
