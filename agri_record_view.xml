@@ -92,7 +92,7 @@
                  <page string="Fertilizer">
                   <separator string="Fertilizer Details"/>
                      <field name="fertilizer_line" colspan="4" string="Fertilizer Details" nolabel="1">
-                        <form string="Fertilizer Details" version="7.0">
+                        <form string="Fertilizer Details" >
                             <sheet>
                               <group>
                                 <field name="fertilizer_name"/>
