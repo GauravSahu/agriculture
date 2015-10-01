@@ -364,7 +364,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,graph</field>
     </record>
-<!--============================================ Plot =============================================-->
+
       <record model="ir.ui.view" id="plot_form">
         <field name="name">plot.form</field>
         <field name="model">plot</field>
