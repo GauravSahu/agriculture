@@ -2,7 +2,7 @@
     "name" : "Agriculture Management",
     "version" : "0.1",
     "author": "Gaurav Sahu",
-    "category" : "Generic Modules/Agriculture Management",
+    "category" : "Custom Module",
     "description": """
    Agriculture Management
     """,
